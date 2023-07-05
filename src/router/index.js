@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
-
+import AddNumber from "../components/add-number.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -11,13 +12,19 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/addnumber",
+    name: "add-number",
+    component: AddNumber,
+  },
+  {
+    path: "/phonelist",
+    name: "Phone-List",
+    component: () => import("../views/Phone-List.vue"),
+  },
+  {
+    path: "/person/:person",
+    name: "Person-Phone",
+    component: () => import("../views/Person-Phone.vue"),
   },
 ];
 

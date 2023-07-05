@@ -24,7 +24,6 @@ export default {
   },
   mounted() {
     this.$store.commit("pushProducts", ArrWithId);
-    this.local = this.$store.state.products;
   },
   computed: {
     lis() {

@@ -63,7 +63,6 @@ export default {
         ? (this.formValues.lastName = this.lastName)
         : null;
       this.formValues.phone == "" ? (this.formValues.phone = this.phone) : null;
-
       this.formValues.id = this.id;
       const formValuesObject = {
         firstName: this.formValues.firstName,
@@ -71,7 +70,9 @@ export default {
         phone: this.formValues.phone,
         id: this.id,
       };
+      console.log(formValuesObject);
       this.$store.commit("changeProduct", formValuesObject);
+      // console.log(this.$store.state.products);
     },
   },
 };

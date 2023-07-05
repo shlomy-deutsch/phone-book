@@ -1,15 +1,16 @@
 <template>
   <div>
     <App-Search @searching="send"></App-Search>
-    <App-Table :products="local"></App-Table>
+    <App-Table :products="lis"></App-Table>
   </div>
 </template>
 
 <script>
 import { ArrWithId } from "@/components/numbers";
-import { mapState } from "vuex";
+// import { mapState } from "vuex";
 import AppTable from "./Table.vue";
 import AppSearch from "./Searchme.vue";
+// import { mapState } from "vuex";
 export default {
   components: {
     AppTable,
@@ -19,36 +20,29 @@ export default {
   data() {
     return {
       txt: "",
-      local: [],
     };
   },
   mounted() {
     this.$store.commit("pushProducts", ArrWithId);
-    this.local = [...this.products];
+    this.local = this.$store.state.products;
   },
   computed: {
-    ...mapState(["products"]),
+    lis() {
+      if (this.txt !== "") {
+        return this.$store.state.products.filter((product) =>
+          product.firstName.includes(this.txt)
+        );
+      } else {
+        return this.$store.state.products;
+      }
+    },
   },
   methods: {
     send(val) {
       this.txt = val;
-      if (this.txt != "") {
-        const filteredArray = [];
-
-        for (let i = 0; i < this.products.length; i++) {
-          if (this.products[i].firstName.includes(this.txt)) {
-            filteredArray.push(this.products[i]);
-          }
-        }
-        this.local = filteredArray;
-      } else {
-        this.local = [...this.products];
-      }
-      console.log(this.txt);
     },
   },
 };
 </script>
 
 <style></style>
-v

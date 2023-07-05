@@ -1,6 +1,7 @@
 <template>
   <div>
     <App-Search @searching="send"></App-Search>
+    <!-- <App-Delete :id=""></App-Delete> -->
     <App-Table :products="lis"></App-Table>
   </div>
 </template>
@@ -10,11 +11,12 @@ import { ArrWithId } from "@/components/numbers";
 // import { mapState } from "vuex";
 import AppTable from "./Table.vue";
 import AppSearch from "./Searchme.vue";
-// import { mapState } from "vuex";
+// import AppDelete from "./Delete.vue";
 export default {
   components: {
     AppTable,
     AppSearch,
+    // AppDelete,
   },
   name: "phone-list",
   data() {

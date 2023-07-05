@@ -1,5 +1,6 @@
 <template>
   <div class="table-container">
+    <App-Delete :id="id"></App-Delete>
     <person-card
       :firstName="firstName"
       :lastName="lastName"
@@ -33,10 +34,10 @@
 
 <script>
 import PersonCard from "./Person-Card.vue";
-
+import AppDelete from "./Delete.vue";
 export default {
   props: ["products"],
-  components: { PersonCard },
+  components: { PersonCard, AppDelete },
   name: "App-Table",
   data() {
     return {

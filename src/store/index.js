@@ -22,6 +22,14 @@ export default new Vuex.Store({
         }
       }
     },
+    deleteProduct(state, id) {
+      for (let i = 0; i < state.products.length; i++) {
+        if (state.products[i].id === id) {
+          state.products.splice(i, 1);
+          break;
+        }
+      }
+    },
   },
   actions: {},
   modules: {},
